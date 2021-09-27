@@ -1,0 +1,6 @@
+zhishikoo/book_info.jso*
+zhishikoo/book_list.jso*
+
+.idea
+*/__pycache__
+*.pyc
