@@ -4,3 +4,6 @@ zhishikoo/book_list.jso*
 .idea
 */__pycache__
 *.pyc
+
+*.log
+*.DS_Store

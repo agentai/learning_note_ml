@@ -30,10 +30,11 @@ class BookListSpider(scrapy.Spider):
             books[book_url_info["title"]] = book_url_info
             yield scrapy.Request(url=book_url_info["book_url"], callback=self.parse_book, meta=book_url_info)
 
-        next_page = response.xpath("//li[@class='next-page']//a//@href").get().strip()
-        print("next_page", next_page)
         print("book_size", len(books))
+        next_page = response.xpath("//li[@class='next-page']//a//@href").get()
         if next_page is not None:
+            next_page = next_page.strip()
+            print("next_page", next_page)
             yield response.follow(next_page, self.parse)
 
     def get_or_default(self, src_path, xpath_str, default=""):
